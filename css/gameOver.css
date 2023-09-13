@@ -1,0 +1,82 @@
+#gameOverOverlay {
+    z-index: 2;
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(21, 20, 26, 0.904);
+    font-family: 'Abel', sans-serif !important;
+}
+
+.gameOverBox {
+    height: fit-content;
+    color: azure;
+    padding: 10px;
+}
+
+.textaligncenter {
+    text-align: center;
+}
+
+.gameOverTitle {
+    top: 1.8%;
+    font-size: 50px;
+    color: white;
+
+}
+
+.gameOverTransform {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.gameOverWrapper {
+    width: 30%;
+    display: table;
+    margin: 0 auto;
+    height: fit-content;
+    background-color: #232528;
+}
+
+.gameOverCenter {
+    justify-content: center;
+    align-items: center;
+}
+
+.gameOverFlex {
+    display: flex;
+}
+
+p.gameOverP {
+    font-size: 20px;
+}
+
+button.gameOverButton {
+    border: none;
+    background-color: #009FFD;
+    color: #EAF6FF;
+    padding: 7px;
+    transition: 0.4s;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+button.gameOverButton:hover {
+    cursor: pointer;
+    background-color: #0083cf;
+    color: #d0dae2;
+    transition: 0.4s;
+}
+
+button.gameOverButton:active {
+    top: 1px;
+}
+
+img.gameOverImg {
+width: 200px;
+}
