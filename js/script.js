@@ -10,12 +10,6 @@ function UpdateView() {
     `;
     document.getElementById('person_object').innerHTML = person_HTML;
     document.getElementById('person_answer').innerHTML = answer_HTML;
-    
-    document.getElementById('skip').innerHTML = /*HTML*/ `
-
-    `;
-
-    
 }
 
 function animateFrameLoop() {
@@ -38,6 +32,9 @@ function meetStranger() {
         random = Math.floor(Math.random() * people.length);
     }
     ActivePerson_index = random;
+    LastPerson_index = random;
+
+    answer_HTML = `<div class="person_name">${people[ActivePerson_index].name}:</div>`;
 
     inAnimation = false;
 
@@ -57,16 +54,23 @@ function loadGreeting(){
 }
 
 function clickGreet(input) {
+    console.log(input);
     const Active_Person = people[ActivePerson_index];
 
-    if (Active_Person.correctanswer == input) {
+    // Hei der Joanathan
+    Greetings_HTML = ``;
+
+    if (Active_Person.correct_greet === input) {
+        console.log('Dette er riktig');
+        
         cool += Active_Person.cool_reward;
-        answer_HTML = `${Active_Person.their_greetings[0]}`;
+        answer_HTML = `<div class="person_name">${Active_Person.name}:</div>${Active_Person.their_greetings[0]}`;
     }
     else {
         cool -= Active_Person.cool_decrease;
-        answer_HTML = `${Active_Person.their_greetings[1]}`;
+        answer_HTML = `<div class="person_name">${Active_Person.name}:</div>${Active_Person.their_greetings[1]}`;
     }
+    carChange();
     UpdateView();
 
     setTimeout(() => {
@@ -87,37 +91,41 @@ function clickGreet(input) {
 }
 
 function gameVictory() {
-    // Sondre
-    // cool >= 10 victory
+    document.getElementById('app').innerHTML = "";
+    const victoryOverlay = document.getElementById('victoryscreen');
 
-    // clearInterval(Interval);
-    document.getElementById('app').innerHTML = /*HTML*/ `
-    <div class="victoryimg">
-    <button onclick="RestartGame()">Restart</button>
-    
-    <embed src="sounds/VictorySound.mp3" autostart hidden="true" type="audio">
-
+    victoryOverlay.style.display = "block";
+    victoryOverlay.innerHTML = /*HTML*/ `
+    <div class="victoryWrapper victoryCenter">
+        <h2 class="victorytitle victoryCenter victoryFlex"> You win! </h2>
+            <div class="victoryBox">
+                <p class="victoryP">Congratulations</p>
+                <p class="victoryP">You have a brilliant car!</p>
+            </div>
+        <div class="victoryCenter victoryFlex">
+            <button onclick="RestartGame()" class="victorybutton">Restart</button> 
+        </div>
+            
     </div>
+    `
     
-    `;
 }
 
 function gameOver() {
     // clearInterval(Interval);
     document.getElementById('app').innerHTML = "";
 
-    const GameOverOverlay = document.getElementById("gameOverOverlay");
+    const gameOverOverlay = document.getElementById("gameOverOverlay");
     //cool = 0; 
 
-    GameOverOverlay.style.display = "block";
-    GameOverOverlay.innerHTML = `
+    gameOverOverlay.style.display = "block";
+    gameOverOverlay.innerHTML = `
     <div class="gameOverWrapper gameOverCenter">
         <h2 class="gameOverTitle gameOverCenter gameOverFlex">Game Over</h2>
         <div class="gameOverCenter gameOverFlex">
             <div class="gameOverBox">
                 <P class="gameOverP">You Lost</P>
                 <p class="gameOverP">Your Car is now a wreck</p>
-                <p class="gameOverP">You greeted //this many//</p>
                 <p class="gameOverP">Try Again!</p>
             </div>
             <img class="gameOverImg" src="img/cryingstick.png">
@@ -139,7 +147,6 @@ function carChange() {
     if (cool > 8) {
         car_Image = "car_3";
     }
-    UpdateView();
 }
 
 function RestartGame() {
@@ -147,6 +154,7 @@ function RestartGame() {
 
 }
 
+answer_HTML = `<div class="person_name">${people[ActivePerson_index].name}:</div>`;
 loadGreeting();
 UpdateView();
 const Interval = setInterval(animateFrameLoop, 500);
@@ -155,4 +163,7 @@ setTimeout(() => {
     UpdateView();
 }, 2000);
 
-document.getElementById('backgroundsound').volume = 0.2;
+var Audio = document.getElementById('backgroundsound');
+Audio.volume = 0.3;
+Audio.loop = true;
+Audio.play();

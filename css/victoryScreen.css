@@ -1,0 +1,54 @@
+#victoryscreen {
+    z-index: 2;
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(21, 20, 26, 0.904);
+    font-family: 'Poppins', sans-serif;
+}
+
+.victoryWrapper {
+    width: 30%;
+    display: table;
+    margin: 0 auto;
+    height: fit-content;
+    background-color: #232528;
+}
+
+.victoryCenter {
+
+    justify-content: center;
+    align-items: center;
+}
+.victorytitle {
+    top: 1.8%;
+    font-size: 50px;
+    color: white;
+}
+
+.victoryFlex {
+    display: flex;
+}
+.victoryBox {
+    height: fit-content;
+    color: azure;
+    padding: 10px;
+}
+.victoryP{
+    font-size: 20px;
+
+}
+.victorybutton {
+    border: none;
+    background-color: #009FFD;
+    color: #EAF6FF;
+    padding: 7px;
+    transition: 0.4s;
+    position: relative;
+    margin-bottom: 10px;
+}

@@ -17,6 +17,9 @@
 
     background-image: url('../img/Road.png');
     background-size: cover;
+    border: black solid 8px;
+    border-radius: 20px;
+    margin: 20px auto;
 }
 
 .nextFrame {
@@ -65,6 +68,15 @@
     border-radius: 15px;
     left: 40%;
     top: 1%;
+    color: black;
+    font-weight: 800;
+    font-size: 22px;
+    justify-content: center;
+    text-align: middle;
+    align-items: center;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px;
 }
 
 .greet {
@@ -83,4 +95,16 @@
     cursor: pointer;
     border: solid black 3px;
     border-radius: 10px;
+}
+
+.person_name {
+    display: flex;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.audio_controls {
+    display: flex;
+    justify-content: center;
 }

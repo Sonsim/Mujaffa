@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/positions.css">
     <link rel="stylesheet" href="css/gameOver.css">
+    <link rel="stylesheet" href="css/victoryScreen.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -16,9 +17,9 @@
 </head>
 
 <body onload="UpdateView()">
-    <audio id="backgroundsound" src="sounds/BackgroundSound.mp3" controls type="audio/mpeg" ></audio>
 
     <div id="gameOverOverlay"></div>
+    <div id="victoryscreen"></div>
 
     <div id="app">
 
@@ -30,6 +31,9 @@
         <div id="person_answer"></div>
 
         <div id="skip"></div>
+    </div>
+    <div class="audio_controls">
+        <audio id="backgroundsound" src="sounds/BackgroundSound.mp3" controls type="audio/mpeg" ></audio>
     </div>
     
 </body>
